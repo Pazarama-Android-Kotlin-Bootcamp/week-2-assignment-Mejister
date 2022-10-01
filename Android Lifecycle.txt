@@ -1,0 +1,20 @@
+		Android lifecycle, temelde bir uygulamanın ilk açılışından ,tamamıyla kapanana kadar ki geçen zamanda olan döngüdür.
+6 temel kısımdan oluşur (create,start,resume,pause,stop,destroy)
+		ANR	uygulamanın yanıt vermemesi hatası olarak tanımlanabilir,sistem uygulamadan belirli bir süre içersinde yetersiz yanıt alır
+ veya alamaz ise bu durumda uygulama kullanıcıya sistemi koruma amacıyla uygulamadan çıkma seçeneği sunar.Bu tarz bir hatayla karşılalaşmamak için
+uygulamanın yaşam döngüsünün doğru şekilde tasarlanması çok önemlidir.
+		Android uygulamaları normalde tek bir iş parçacığının üzerinde çalışır, bir uygulama kullanıcının girdilerine cevap veremezse 
+veya girdi yapılan işlemin cevap vermesi çok uzun süre alırsa ANR hatası görülebilir.ANR'lerin diğer bir yaygın nedeni ise, ana iş parçacığının ihtiyaç duyduğu 
+bir kaynak üzerinde bir çalışan iş parçacığının kilitlenmesi nedeniyle ana iş parçacığının işini bitirememesidir. Bu durumda, ana iş parçacığı, çalışan iş parçacığının 
+işini bitirmesini beklemeye zorlanır ve bu da ANR ye sebep olabilir.
+		ANR'den uzak durmak için,uygulama bileşenlerinin çalıştırıldığı kısım olan UI-thread kısmında temel yaşam dögülerinin çalıştırılması
+için gerekli olan işlemler kısa tutulmalıdır.Bunun yerine daha uzun sürecek işlemler halihazırda çalışmakta olan bir UI parçacığına atanmalıdır, bunun yanında program
+arka planda çalışırken RAM'i ve program iş parçacıklarını zorlayacak işlemler yapılmayacak şekilde lifecycle döngüsü tasarlanmalıdır.
+		Bir ANR oluştuğunda veya uygulamanız birdenbire çöktüğünde, Android Studio durumla ilgili bazı bilgileri cihazın kendisindeki bir txt dosyasına kaydeder.
+Buradaki verileri toplamak ve bakmak için ADB'yi kullanabilirsiniz. Ayrıca, uygulamada ortaya çıktıklarında ANR'leri yakalamak, sıklıklarını almak ve gerçekleştiği
+etkinlik dizisini olay haline getirmek için Firebase'den Crashlytics'i de ekleyebilirsiniz.
+
+		
+
+
+ 
